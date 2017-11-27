@@ -9,10 +9,8 @@ def spectral(w_f, k):
         for j in range(w_f.shape[1]):
             d[i, i] += w_f[i, j]
     l = d - w_f
-    print(np.array_equal(w_f, w_f.T))
     w, v = np.linalg.eig(l)
     ind = w.argsort()[:k]
-    print(ind)
     V = np.zeros((v.shape[0], k))
     for a in range(len(ind)):
         V[:, a] = v[:, ind[a]]
